@@ -1,9 +1,17 @@
 #Parser for adjectives. ~chrisruby
 
-def txt_to_array ()
-  file_path = File.readlines("./adjective.txt".chomp)
+def txt_to_array
+  file_array = File.readlines("./adjective.txt".chomp)
 
-  file_path
+  file_array
 end
 
-puts txt_to_array
+def convert_name (string)
+
+  name_sum = string.bytes.sum
+
+  txt_to_array[name_sum % txt_to_array.length]
+
+end
+
+puts convert_name("kika")
